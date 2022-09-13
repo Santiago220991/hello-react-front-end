@@ -1,13 +1,17 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Greeting from "./components/Greeting"
+import Greeting from "./components/greeting";
+import { Provider } from 'react-redux';
+import Store from './redux/configureStore';
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route exact path="/" element={ <Greeting /> } />
-    </Routes>
-  </BrowserRouter>
+    <Provider store={Store}>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={ <Greeting /> } />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
